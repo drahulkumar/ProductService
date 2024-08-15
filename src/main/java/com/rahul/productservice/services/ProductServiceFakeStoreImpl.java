@@ -6,6 +6,7 @@ import com.rahul.productservice.dtos.fakestore.FakeStoreGetProductResponseDto;
 import com.rahul.productservice.models.Category;
 import com.rahul.productservice.models.Product;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
@@ -127,6 +128,8 @@ public class ProductServiceFakeStoreImpl implements ProductService{
         );
         return null;
     }
+
+
 
 
 

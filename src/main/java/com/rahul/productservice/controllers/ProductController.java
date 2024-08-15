@@ -1,11 +1,13 @@
 package com.rahul.productservice.controllers;
 
 
+import com.rahul.productservice.dtos.ErrorResponseDto;
 import com.rahul.productservice.dtos.products.*;
 import com.rahul.productservice.models.Product;
 import com.rahul.productservice.services.ProductService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
+import com.rahul.productservice.Exceptions.ProductNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +19,7 @@ public class ProductController {
     private ProductService productService;
 
 
-    public ProductController(@Qualifier("fakeStoreProductService") ProductService productService) {
+    public ProductController(@Qualifier("dbProductService") ProductService productService) {
         this.productService = productService;
     }
 
@@ -77,17 +79,18 @@ public class ProductController {
     public PatchProductResponseDto updateProduct(
             @PathVariable("id") Long productId,
             @RequestBody CreateProductDto productDto
-    ){
+    ) throws ProductNotFoundException {
         Product product = productService.partialUpdateProduct(
-                productId ,
-                productDto.toProduct());
+                productId,
+                productDto.toProduct()
+        );
 
         PatchProductResponseDto response = new PatchProductResponseDto();
         response.setProduct(GetProductDto.from(product));
 
         return response;
-
     }
+
 
     @RequestMapping(name = "Naman" , value="")
     public String tdisdtsdds(){

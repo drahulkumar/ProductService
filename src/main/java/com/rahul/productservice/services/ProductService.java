@@ -1,5 +1,6 @@
 package com.rahul.productservice.services;
 
+import com.rahul.productservice.Exceptions.ProductNotFoundException;
 import com.rahul.productservice.models.Product;
 
 import java.util.List;
@@ -11,7 +12,7 @@ public interface ProductService {
     Product getProductById(Long id);
     void deleteProductById(Long id);
 
-    Product partialUpdateProduct(Long productId, Product product);
+    Product partialUpdateProduct(Long productId, Product product) throws ProductNotFoundException;
 }
 
 

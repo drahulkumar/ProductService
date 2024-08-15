@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CreateProductRequestDto {
-
+    //private Long id;
     private String title;
     private  String description;
     private double price;
@@ -17,6 +17,7 @@ public class CreateProductRequestDto {
 
     public Product toProduct(){
         Product product = new Product();
+        //product.setId(this.id);
         product.setTitle(this.title);
         product.setDescription(this.description);
         product.setPrice(this.price);
