@@ -71,7 +71,8 @@ public class ProductServiceDBImpl implements ProductService{
             Category toSaveCategory = new Category();
             toSaveCategory.setName(categoryName);
 
-            toBePutInProduct = categoryRepository.save(toSaveCategory);
+            toBePutInProduct = toSaveCategory;
+                    //categoryRepository.save(toSaveCategory);
             // categoryRepository.save(toSaveCategory);
         }
         else{

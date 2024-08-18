@@ -2,6 +2,7 @@ package com.rahul.productservice.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,4 +20,7 @@ public class Category extends BaseModel{
 
     @OneToMany(mappedBy = "category")
     private List<Product> allProducts;
+
+    @OneToOne
+    private  Subcategory subcategories;
 }
